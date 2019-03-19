@@ -5,6 +5,7 @@ var cookieParser = require('cookie-parser');
 var logger = require('morgan');
 var ejs = require('ejs');
 const mysql = require('mysql');
+const bodyparser = require('body-parser');
 
 var indexRouter = require('./routes/index');
 var usersRouter = require('./routes/users');
@@ -20,6 +21,7 @@ app.use(express.json());
 app.use(express.urlencoded({ extended: false }));
 app.use(cookieParser());
 app.use(express.static(path.join(__dirname, 'public')));
+app.use(bodyparser.json());
 
 app.use('/', indexRouter);
 app.use('/users', usersRouter);
@@ -40,14 +42,15 @@ app.use(function (err, req, res, next) {
   res.render('error');
 });
 
-var mysql_connect = mysql.createConnection({
+var mysql_connection = mysql.createConnection({
   host: 'localhost',
   user: 'root',
   password: '',
-  database: 'dental_system'
+  database: 'dental_system',
+  multipleStatements: true
 });
 
-mysql_connect.connect( (err) => {
+mysql_connection.connect( (err) => {
   if(!err){
     console.log('MySQL connection succeded.');
   } else{
@@ -55,4 +58,8 @@ mysql_connect.connect( (err) => {
   }
 });
 
+//app.listen(3000, () => console.log('Express server is running at port 3000!'));
+
+exports.mysql = mysql_connection;
 module.exports = app;
+
