@@ -69,6 +69,7 @@ exports.insert_patient = (req, res, next) => {
         "Number": req.body.Number,
         "Date_of_birth": req.body.Date_of_birth
     };
+    console.log(patient);
     app.mysql.query('INSERT INTO patient SET  ?', patient, (err, row, fields) => {
         if (!err) {
             res.status(200).json({
@@ -87,15 +88,6 @@ exports.insert_patient = (req, res, next) => {
 
 // UPDATE patients
 exports.update_patient = (req, res, next) => {
-    var patient = {
-        "PatientID": req.body.PatientID,
-        "First_name": req.body.First_name,
-        "Last_name": req.body.Last_name,
-        "JMBG": req.body.JMBG,
-        "Address": req.body.Address,
-        "Number": req.body.Number,
-        "Date_of_birth": req.body.Date_of_birth
-    };
     app.mysql.query(`UPDATE patient 
                     SET first_name = ?, last_name = ?, JMBG = ?, address = ?, number = ?, date_of_birth = ?
                     WHERE patientID = ?`,
