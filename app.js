@@ -7,9 +7,13 @@ var ejs = require('ejs');
 const mysql = require('mysql');
 const bodyparser = require('body-parser');
 
+//Databases
+const mysql_db = require('./db/mysql_db');
+
 var indexRouter = require('./routes/index');
 var patientRouter = require('./routes/patient_routes');
 var dentistRouter = require('./routes/dentist_routes');
+var toothRouter = require('./routes/tooth_routes');
 
 var app = express();
 
@@ -27,6 +31,8 @@ app.use(bodyparser.json());
 app.use('/', indexRouter);
 app.use('/patients', patientRouter);
 app.use('/dentists', dentistRouter);
+app.use('/teeth', toothRouter);
+
 
 // catch 404 and forward to error handler
 app.use(function (req, res, next) {
@@ -60,8 +66,14 @@ mysql_connection.connect( (err) => {
   }
 });
 
+mysql_db.authenticate()
+.then(() => console.log('Database connected...'))
+.catch((err) => console.log('Error: ' + err))
+
 //app.listen(3000, () => console.log('Express server is running at port 3000!'));
 
 exports.mysql = mysql_connection;
+exports.mysql_db = mysql_db;
+
 module.exports = app;
 
