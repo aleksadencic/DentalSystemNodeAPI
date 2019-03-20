@@ -14,7 +14,8 @@ var indexRouter = require('./routes/index');
 var patientRouter = require('./routes/patient_routes');
 var dentistRouter = require('./routes/dentist_routes');
 var toothRouter = require('./routes/tooth_routes');
-var DentalServiceRouter = require('./routes/dental_service_routes');
+var dentalServiceRouter = require('./routes/dental_service_routes');
+var interventionRouter = require('./routes/intervention_routes');
 
 var app = express();
 
@@ -33,8 +34,8 @@ app.use('/', indexRouter);
 app.use('/patients', patientRouter);
 app.use('/dentists', dentistRouter);
 app.use('/teeth', toothRouter);
-app.use('/dentalservices', DentalServiceRouter);
-
+app.use('/dentalservices', dentalServiceRouter);
+app.use('/interventions', interventionRouter);
 
 // catch 404 and forward to error handler
 app.use(function (req, res, next) {
