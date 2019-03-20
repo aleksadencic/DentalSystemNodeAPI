@@ -17,4 +17,4 @@ const Tooth = db.define('tooth', {
         timestamps: false
     });
 
-module.exports = Tooth
+module.exports = Tooth;
