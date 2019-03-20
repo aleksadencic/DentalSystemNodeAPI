@@ -10,7 +10,6 @@ exports.find_all_teeth = (req, res, next) => {
                 type: 'success',
                 data: teeth
             });
-
         })
         .catch(err => {
             res.status(500).json({
@@ -33,7 +32,6 @@ exports.find_tooth_with_id = (req, res, next) => {
                 type: 'success',
                 data: tooth
             });
-
         })
         .catch(err => {
             res.status(400).json({
@@ -56,7 +54,6 @@ exports.delete_tooth = (req, res, next) => {
                 type: 'success',
                 text: 'Tooth with ToothID=' + req.params.id + ' successfully deleted.'
             });
-
         })
         .catch(err => {
             res.status(400).json({
@@ -82,7 +79,6 @@ exports.insert_tooth = (req, res, next) => {
                 type: 'success',
                 text: 'Tooth ' + JSON.stringify(tooth) + ' successfully inserted.'
             });
-
         })
         .catch(err => {
             res.status(400).json({

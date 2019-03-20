@@ -67,7 +67,7 @@ mysql_connection.connect( (err) => {
 });
 
 mysql_db.authenticate()
-.then(() => console.log('Database connected...'))
+.then(() => console.log('Connected to MySQL database with sequelize'))
 .catch((err) => console.log('Error: ' + err))
 
 //app.listen(3000, () => console.log('Express server is running at port 3000!'));
