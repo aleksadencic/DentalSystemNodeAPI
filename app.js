@@ -8,14 +8,16 @@ const mysql = require('mysql');
 const bodyparser = require('body-parser');
 
 //Databases
-const mysql_db = require('./db/mysql_db');
+const mysql_db = require('./db/mysql_db'); //sequelize
 
+//Routers
 var indexRouter = require('./routes/index');
 var patientRouter = require('./routes/patient_routes');
 var dentistRouter = require('./routes/dentist_routes');
 var toothRouter = require('./routes/tooth_routes');
 var dentalServiceRouter = require('./routes/dental_service_routes');
 var interventionRouter = require('./routes/intervention_routes');
+var treatementRouter = require('./routes/treatement_routes');
 
 var app = express();
 
@@ -36,6 +38,7 @@ app.use('/dentists', dentistRouter);
 app.use('/teeth', toothRouter);
 app.use('/dentalservices', dentalServiceRouter);
 app.use('/interventions', interventionRouter);
+app.use('/treatements', treatementRouter);
 
 // catch 404 and forward to error handler
 app.use(function (req, res, next) {
@@ -61,17 +64,17 @@ var mysql_connection = mysql.createConnection({
   multipleStatements: true
 });
 
-mysql_connection.connect( (err) => {
-  if(!err){
+mysql_connection.connect((err) => {
+  if (!err) {
     console.log('MySQL connection succeded.');
-  } else{
+  } else {
     console.log('MySQL connection failed. \n Error: ' + JSON.stringify(err, undefined, 2));
   }
 });
 
 mysql_db.authenticate()
-.then(() => console.log('Connected to MySQL database with sequelize'))
-.catch((err) => console.log('Error: ' + err))
+  .then(() => console.log('Connected to MySQL database with sequelize'))
+  .catch((err) => console.log('Error: ' + err))
 
 //app.listen(3000, () => console.log('Express server is running at port 3000!'));
 
