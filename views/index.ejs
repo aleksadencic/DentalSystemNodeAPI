@@ -1,13 +1,46 @@
 <!DOCTYPE html>
 <html lang="en">
-    <head>
-        <title></title>
-        <meta charset="UTF-8">
-        <meta name="viewport" content="width=device-width, initial-scale=1">
-        <link href="css/style.css" rel="stylesheet">
-    </head>
-    <body>
-        <h1><%= title %></h1>
-        <p>Welcome to <%= title %></p>
-    </body>
+
+<head>
+    <title></title>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <link href="./css/style.css" rel="stylesheet">
+</head>
+
+<body>
+    <h1>
+        <%= title %>
+    </h1>
+    <p>Welcome to
+        <%= title %>
+    </p>
+    <br>
+    <table>
+        <tr>
+            <th>Class</th>
+            <th>Request</th>
+            <th>Route</th>
+            <th>Explanation</th>
+        </tr>
+        <% for(var i=0; i<data.length; i++) { %>
+        <tr>
+            <td>
+                <%= data[i].class %>
+            </td>
+            <td>
+                <%= data[i].request %>
+            </td>
+            <td>
+                <%= data[i].route %>
+            </td>
+            <td>
+                <%= data[i].explanation %>
+            </td>
+        </tr>
+        <% } %>
+        <tr>
+    </table>
+</body>
+
 </html>
