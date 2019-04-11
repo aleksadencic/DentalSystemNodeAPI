@@ -16,26 +16,168 @@
         <%= title %>
     </p>
     <br>
-    <table>
+    <h2><b><u>Patients</u></b></h2>
+    <table id="tablePatients">
+        <col width="100">
+        <col width="100">
+        <col width="100">
         <tr>
-            <th>Class</th>
             <th>Request</th>
             <th>Route</th>
             <th>Explanation</th>
         </tr>
-        <% for(var i=0; i<data.length; i++) { %>
+        <% for(var i=0; i<dataPatients.length; i++) { %>
         <tr>
             <td>
-                <%= data[i].class %>
+                <%= dataPatients[i].request %>
             </td>
             <td>
-                <%= data[i].request %>
+                <a href="localhost:3000<%= dataPatients[i].route %>">
+                    <%= dataPatients[i].route %>
+                </a>
             </td>
             <td>
-                <%= data[i].route %>
+                <%= dataPatients[i].explanation %>
+            </td>
+        </tr>
+        <% } %>
+        <tr>
+    </table>
+    <br>
+    <h2><b><u>Dentists</u></b></h2>
+    <table id="tableDentists">
+        <col width="100">
+        <col width="100">
+        <col width="100">
+        <tr>
+            <th>Request</th>
+            <th>Route</th>
+            <th>Explanation</th>
+        </tr>
+        <% for(var i=0; i<dataDentists.length; i++) { %>
+        <tr>
+            <td>
+                <%= dataDentists[i].request %>
             </td>
             <td>
-                <%= data[i].explanation %>
+                <a href="localhost:3000<%= dataDentists[i].route %>">
+                    <%= dataDentists[i].route %>
+                </a>
+            </td>
+            <td>
+                <%= dataDentists[i].explanation %>
+            </td>
+        </tr>
+        <% } %>
+        <tr>
+    </table>
+    <br>
+    <h2><b><u>Teeth</u></b></h2>
+    <table id="tableTeeth">
+        <col width="100">
+        <col width="100">
+        <col width="100">
+        <tr>
+            <th>Request</th>
+            <th>Route</th>
+            <th>Explanation</th>
+        </tr>
+        <% for(var i=0; i<dataTeeth.length; i++) { %>
+        <tr>
+            <td>
+                <%= dataTeeth[i].request %>
+            </td>
+            <td>
+                <a href="localhost:3000<%= dataTeeth[i].route %>">
+                    <%= dataTeeth[i].route %>
+                </a>
+            </td>
+            <td>
+                <%= dataTeeth[i].explanation %>
+            </td>
+        </tr>
+        <% } %>
+        <tr>
+    </table>
+    <br>
+    <h2><b><u>Dental services</u></b></h2>
+    <table id="tableDentalServices">
+        <col width="100">
+        <col width="100">
+        <col width="100">
+        <tr>
+            <th>Request</th>
+            <th>Route</th>
+            <th>Explanation</th>
+        </tr>
+        <% for(var i=0; i<dataDentalServices.length; i++) { %>
+        <tr>
+            <td>
+                <%= dataDentalServices[i].request %>
+            </td>
+            <td>
+                <a href="localhost:3000<%= dataDentalServices[i].route %>">
+                    <%= dataDentalServices[i].route %>
+                </a>
+            </td>
+            <td>
+                <%= dataDentalServices[i].explanation %>
+            </td>
+        </tr>
+        <% } %>
+        <tr>
+    </table>
+    <br>
+    <h2><b><u>Interventions</u></b></h2>
+    <table id="tableInterventions">
+        <col width="100">
+        <col width="100">
+        <col width="100">
+        <tr>
+            <th>Request</th>
+            <th>Route</th>
+            <th>Explanation</th>
+        </tr>
+        <% for(var i=0; i<dataInterventions.length; i++) { %>
+        <tr>
+            <td>
+                <%= dataInterventions[i].request %>
+            </td>
+            <td>
+                <a href="localhost:3000<%= dataInterventions[i].route %>">
+                    <%= dataInterventions[i].route %>
+                </a>
+            </td>
+            <td>
+                <%= dataInterventions[i].explanation %>
+            </td>
+        </tr>
+        <% } %>
+        <tr>
+    </table>
+    <br>
+    <h2><b><u>Treatements</u></b></h2>
+    <table id="tableTreatements">
+        <col width="100">
+        <col width="100">
+        <col width="100">
+        <tr>
+            <th>Request</th>
+            <th>Route</th>
+            <th>Explanation</th>
+        </tr>
+        <% for(var i=0; i<dataTreatements.length; i++) { %>
+        <tr>
+            <td>
+                <%= dataTreatements[i].request %>
+            </td>
+            <td>
+                <a href="localhost:3000<%= dataTreatements[i].route %>">
+                    <%= dataTreatements[i].route %>
+                </a>
+            </td>
+            <td>
+                <%= dataTreatements[i].explanation %>
             </td>
         </tr>
         <% } %>
