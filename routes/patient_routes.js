@@ -1,5 +1,6 @@
 var express = require('express');
 var router = express.Router();
+const cors = require('cors')
 
 // Require controller modules
 var patient_controller = require('../controllers/patient_controller');
@@ -7,7 +8,7 @@ var patient_controller = require('../controllers/patient_controller');
 /* ROUTES */
 
 router.route('/')
-    .get(patient_controller.find_all_patients) // GET request - find all patients
+    .get(cors(), patient_controller.find_all_patients) // GET request - find all patients
     .post(patient_controller.insert_patient); // POST request - insert patient
 
 router.route('/:id')

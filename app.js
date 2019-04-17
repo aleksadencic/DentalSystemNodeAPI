@@ -6,6 +6,7 @@ var logger = require('morgan');
 var ejs = require('ejs');
 const mysql = require('mysql');
 const bodyparser = require('body-parser');
+var cors = require('cors');
 
 //Databases
 const mysql_db = require('./db/mysql_db'); //sequelize
@@ -55,6 +56,10 @@ app.use(function (err, req, res, next) {
   res.status(err.status || 500);
   res.render('error');
 });
+
+
+
+app.use(cors());
 
 var mysql_connection = mysql.createConnection({
   host: 'localhost',
